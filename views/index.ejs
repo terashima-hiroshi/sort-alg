@@ -1,0 +1,22 @@
+<form method="post" action="/">
+    <div>
+        <% for (var i = 0; i < inputNumbers.length; i++) { %>
+            <input name="inputNumbers[]" type="number" value="<%= inputNumbers[i] %>" style="width: 50px;">
+        <% } %>
+    </div>
+    <div>
+        <select name="algorithm" value="<%= selectedAlgorithm %>">
+            <% for (var i = 0; i < algorithms.length; i++) { %>
+                <% const selected = selectedAlgorithm === algorithms[i].code ? 'selected' : ''; %>
+                <option value="<%= algorithms[i].code %>" <%= selected %>><%= algorithms[i].name %></option>
+            <% } %>
+        </select>
+        <button type="submit">ソート</button>
+    </div>
+</form>
+<div>
+    <h3>結果</h3>
+    <div style="margin-left: 20px;">
+        <%= result %>
+    </div>
+</div>
